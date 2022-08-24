@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Student\StoreRequest;
 use App\Models\Student;
 use Illuminate\Http\Request;
 
@@ -13,7 +14,10 @@ class StudentController extends Controller
 
         $students = Student::query()
             ->where('name', 'like', '%' . $search . '%')
-            ->get();
+            ->paginate(2);
+
+        $students->appends(['search' => $search]);
+
         return view('Student.index', [
             'students' => $students,
             'search' => $search
@@ -25,7 +29,7 @@ class StudentController extends Controller
         return view('Student.create');
     }
 
-    public function store(Request $request)
+    public function store(StoreRequest $request)
     {
         $student = new Student();
         $student->fill($request->except('_token'));

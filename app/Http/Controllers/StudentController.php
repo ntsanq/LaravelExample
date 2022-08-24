@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\Student\StoreRequest;
 use App\Models\Student;
 use Illuminate\Http\Request;
+use Yajra\DataTables\DataTables;
 
 class StudentController extends Controller
 {
@@ -18,7 +19,7 @@ class StudentController extends Controller
 
         $students->appends(['search' => $search]);
 
-        return view('Student.index', [
+        return view('student.index', [
             'students' => $students,
             'search' => $search
         ]);
@@ -26,7 +27,7 @@ class StudentController extends Controller
 
     public function create()
     {
-        return view('Student.create');
+        return view('student.create');
     }
 
     public function store(StoreRequest $request)
@@ -39,7 +40,7 @@ class StudentController extends Controller
 
     public function edit(Student $student)
     {
-        return view('Student.edit', ['student' => $student]);
+        return view('student.edit', ['student' => $student]);
     }
 
     public function update(Request $request, Student $student)
@@ -57,5 +58,14 @@ class StudentController extends Controller
     {
         $student->delete();
         return redirect()->route('students.index');
+    }
+
+    public function dataTables()
+    {
+        return Datatables::of(Student::query())
+            ->editColumn('dob', function ($object) {
+                return $object->age;
+            })
+            ->make(true);
     }
 }

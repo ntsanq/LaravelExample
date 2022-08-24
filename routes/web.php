@@ -11,3 +11,4 @@ Route::get('/login',[LoginController::class, 'index']);
 Route::get('/admin',[AdminController::class, 'index']);
 
 Route::resource('students',StudentController::class);
+Route::get('/dataTables',[StudentController::class, 'dataTables'])->name('students.dataTable');

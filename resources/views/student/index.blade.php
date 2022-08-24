@@ -68,7 +68,7 @@
                 columns: [
                     { data: 'id', name: 'id' },
                     { data: 'name', name: 'name' },
-                    { data: 'dob', name: 'age' },
+                    { data: 'dob', name: 'dob' },
                     { data: 'gender', name: 'gender' },
                     { data: 'edit', name: 'edit' },
                     { data: 'delete', name: 'delete' }

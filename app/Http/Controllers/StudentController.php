@@ -66,6 +66,15 @@ class StudentController extends Controller
             ->editColumn('dob', function ($object) {
                 return $object->age;
             })
+            ->addColumn('edit', function ($object) {
+                $link = route('students.edit', $object);
+                return "<a class='btn btn-primary' href='$link'>Edit</a>";
+            })
+            ->addColumn('delete', function ($object) {
+                $link = route('students.destroy', $object);
+                return "<a class='btn btn-danger' href='$link'>Delete</a>";
+            })
+            ->rawColumns(['edit','delete'   ])
             ->make(true);
     }
 }

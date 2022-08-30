@@ -64,7 +64,7 @@
             $('#students-table').DataTable({
                 processing: true,
                 serverSide: true,
-                ajax: '{!! route('students.dataTable') !!}',
+                ajax: '{!! route('api.students') !!}',
                 columns: [
                     { data: 'id', name: 'id' },
                     { data: 'name', name: 'name' },

@@ -26,14 +26,14 @@
 <!-- Begin page -->
 <div class="wrapper">
 
-    @include('Admin/sidebar')
+    @include('admin/sidebar')
 
     <!-- ============================================================== -->
     <!-- ============================================================== -->
 
     <div class="content-page">
         <div class="content">
-            @include('Admin/topbar')
+            @include('admin/topbar')
 
             <!-- Start Content-->
             <div class="container-fluid">
@@ -51,7 +51,7 @@
             </div>
             <!-- end content -->
 
-            @include('Admin/footer')
+            @include('admin/footer')
 
         </div>
 
@@ -62,7 +62,7 @@
     </div>
 
     <!-- right bar -->
-    @include('Admin/rightbar')
+    @include('admin/rightbar')
 
     <!-- Js -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
